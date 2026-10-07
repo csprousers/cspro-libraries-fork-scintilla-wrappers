@@ -1308,13 +1308,13 @@ BOOL CScintillaView::FindTextSimple(_In_z_ LPCTSTR lpszFind, _In_ BOOL bNext, _I
     if (bNext)
     {
       ft.chrg.cpMin = 0;
-      ft.chrg.cpMax = min(m_lInitialSearchPos + CString(lpszFind).GetLength(), rCtrl.GetLength());
+      ft.chrg.cpMax = std::min(m_lInitialSearchPos + CString(lpszFind).GetLength(), rCtrl.GetLength()); // CSPRO_SCINTILLA_MOD
       m_lInitialSearchPos = 0;
     }
     else
     {
       ft.chrg.cpMin = rCtrl.GetLength();
-      ft.chrg.cpMax = max(m_lInitialSearchPos - CString(lpszFind).GetLength(), 0);
+      ft.chrg.cpMax = std::max<Position>(m_lInitialSearchPos - CString(lpszFind).GetLength(), 0); // CSPRO_SCINTILLA_MOD
       m_lInitialSearchPos = ft.chrg.cpMin;
     }
 

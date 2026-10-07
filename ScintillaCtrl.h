@@ -36,6 +36,7 @@ to maintain a single distribution point for the source code.
 
 #define SCINTILLACTRL_EXT_CLASS CLASS_DECL_ZEDITO
 
+#include <zScintilla/include/ILoader.h>
 #include <zScintilla/include/ScintillaTypes.h>
 #include <zScintilla/include/ScintillaCall.h>
 #include <zScintilla/include/ScintillaMessages.h>
@@ -60,9 +61,8 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef SCINTILLASTRUCTURES_H
 
 #ifndef ILOADER_H
-// CSPRO_SCINTILLA_MOD
-// #pragma message("To avoid this message, please put ILoader.h in your pre compiled header (normally stdafx.h)")
-#include <zScintilla/include/ILoader.h>
+#pragma message("To avoid this message, please put ILoader.h in your pre compiled header (normally stdafx.h)")
+#include <ILoader.h>
 #endif //#ifndef ILOADER_H
 
 #ifndef SCINTILLACTRL_EXT_CLASS
